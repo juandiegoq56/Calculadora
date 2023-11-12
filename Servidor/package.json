@@ -1,0 +1,19 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "servidor.js",
+    "start": "node servidor.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cors-anywhere": "^0.4.4",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
