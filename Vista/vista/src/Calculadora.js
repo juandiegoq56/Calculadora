@@ -1,16 +1,15 @@
-import logo from './logo.svg';
-import './calculadora.css';
-import Axios from 'axios';
-import React, { useState } from 'react';
-import { Button, Container, Row, Col, FormControl } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { calculadora,borr,history1,obtenerFecha } from './Model/OperacionesMat';
+import './calculadora.css';// Importar estilos
+import Axios from 'axios'; //Importar axios para comunicarse con el servidor atraves de el protocolo HTTP
+import React, { useState } from 'react';// Importar React
+import { Button, Container, Row, Col, FormControl } from 'react-bootstrap'; // Importar Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';// Importa librerias de Bootstrap
+import { calculadora,borr,history1,obtenerFecha } from './Model/OperacionesMat'; // Llama las funciones del Model
 function App1() {
     // inicio Controlador
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([]);
    
-    const addToInput = val => {
+    const addToInput = val => { //concatena los caracteres ingresados en el input
       setInput(prevInput => prevInput + val);
     };
   
@@ -23,11 +22,11 @@ function App1() {
           alert('Ingrese Operación Valida')
           setInput('');
         }else{
-          setHistory(hi);
-          setInput(result);
+          setHistory(hi); //actualiza el historial
+          setInput(result);// actualiza la entrada
         }
       } catch (error) {
-        setInput('Error');
+        setInput('Error'); //manejo de errores
       }
     };
     const borrar = () => {
@@ -37,27 +36,25 @@ function App1() {
           setInput(result);
         
       } catch (error) {
-        setInput('Error');
+        setInput('Error'); // manejo de errores
       }
     };
-  
+  // limpia la entrada del input
     const handleClear = () => {
       setInput('');
       setHistory([])
     };
-
+    // Envia la operación y el resultado a la API para posteriormente envialos a la BD
     const historial = () => {
       const fechaFormateada = obtenerFecha();
       Axios.post('http://localhost:3001/create', {
         fecha_hora: fechaFormateada,
         operacion:history,
         resultado:input
-
       })
       .then(() => {
-        alert('Operación guardada');
-      })
-      .catch((error) => {
+        alert('Operación guardada'); // Mensaje avisando el envio de los datos
+      }).catch((error) => {          // Manejo de errores
         console.log('Error al registrar:', error);
         if (error.response) {
           // Imprimir detalles específicos del error de la respuesta
@@ -94,7 +91,7 @@ function App1() {
         <Row className="mt-3">
           <Col>
             
-            <Button variant="primary" className="addMargin" onClick={() => addToInput('7')}>7</Button>
+            <Button variant="primary" className="addMargin" onClick={() => addToInput('7')}>7</Button> {/*Los botones de numeros y operaciones invocando las respectivas funciones */}
             <Button variant="primary" className="addMargin" onClick={() => addToInput('8')}>8</Button>
             <Button variant="primary" className="addMargin"  onClick={() => addToInput('9')}>9</Button>
             <Button variant="warning" className="addMargin" onClick={() => addToInput('-')}>-</Button>
@@ -125,7 +122,7 @@ function App1() {
            
             <Button variant="primary" className="addMargin" onClick={() => addToInput('0')}>0</Button>
             <Button variant="danger"  className="addMargin" onClick={borrar}>x</Button>
-            <Button variant="success" className="addMargin" onClick={calcular}>=</Button>
+            <Button variant="success" className="addMargin" onClick={calcular}>=</Button> {/*Boton para calcular las operacaiones */}
             <Button variant="warning" className="addMargin" onClick={() => addToInput('/')}>/</Button>
             
             
@@ -133,9 +130,9 @@ function App1() {
         </Row>
         <Row className="mt-3">
           <Col>
-          <Button variant="success" className="addMargin" onClick={historial}>Guardar</Button>
+          <Button variant="success" className="addMargin" onClick={historial}>Guardar</Button> {/*Boton para guardar la operación y resultado que desee el usuario*/ }
             
-            <Button variant="danger" className="addMargin" onClick={handleClear}>Clear</Button>
+            <Button variant="danger" className="addMargin" onClick={handleClear}>Clear</Button>{/*Boton para limpiar el input de operaciones o resultados */}
             
           </Col>
         </Row>

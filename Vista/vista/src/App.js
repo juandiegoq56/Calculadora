@@ -1,5 +1,5 @@
 import React from 'react';
-import Datos from './historial';
+import Datos from './CRUD';
 import App1 from './Calculadora';
 
 

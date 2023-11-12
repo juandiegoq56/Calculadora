@@ -1,3 +1,4 @@
+/*Estilos*/
 .cal{
     display: flex;
     align-items: center;
@@ -26,7 +27,7 @@
 .mt-3.Buttom{
     margin: 10px;
 }
-/* En tu archivo CSS */
+
 .addMargin {
     margin-right: 10px;
     border-radius: 90%;

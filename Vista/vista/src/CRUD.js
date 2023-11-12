@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Axios from 'axios';
-import "./historial.css";
+import React, { useEffect, useState } from 'react'; // Importar React
+import Axios from 'axios'; //Importar axios para comunicarse con el servidor atraves de el protocolo HTTP
+import "./historial.css";// Importar estilos
 
 const Datos = () => {
+  // Inicio del controlador
   const [data, setData] = useState([]);//obtener datos de entrada
   const [editingId, setEditingId] = useState(null); // almacenar id a editar
   const [editedData, setEditedData] = useState({ operacion: '', resultado: '' });// almacena datos editados en la input habilitada para guardarlos despues.
@@ -74,7 +75,7 @@ const Datos = () => {
     }));
     
   };
-
+  // Fin del controlador
   return (
     <div className='editar'>
       <div>
