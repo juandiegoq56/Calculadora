@@ -44,6 +44,38 @@ app.get("/datos", (req, res) => {
     }
   });
 });
+app.patch("/update/:id", (req, res) => {
+  const id = req.params.id;
+  const operacion = req.body.operacion;
+  const resultado = req.body.resultado;
+  const fecha_hora = req.body.fecha_hora;
+  
+  db.query(
+    "UPDATE datos SET operacion = ?, resultado = ?, fecha_hora = ? WHERE id = ?",
+    [operacion, resultado, fecha_hora, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error al actualizar los datos");
+        alert('error actualizar')
+      } else {
+        res.send("Datos actualizados");
+        console.log(req.body)
+      }
+    }
+  );
+});
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM datos WHERE id = ?", id, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error al eliminar los datos");
+    } else {
+      res.send("Datos eliminados");
+    }
+  });
+});
 
 const port = process.env.PORT || 3001;
 

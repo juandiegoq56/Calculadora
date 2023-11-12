@@ -1,0 +1,27 @@
+.data-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  
+  td{
+    border: 10px solid black; /* Establece un borde sólido de 1px */
+    padding: 8px; /* Añade relleno para mejorar la apariencia */
+  }
+  th{
+    border: 20px solid black;
+  }
+  
+  .data-table th {
+  
+    padding: 10px;
+    left: 10px;
+    border: 10px solid black;
+    padding: 8px;
+  }
+  .editar{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
