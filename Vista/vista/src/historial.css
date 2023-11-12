@@ -6,18 +6,18 @@
   
   
   td{
-    border: 10px solid black; /* Establece un borde sólido de 1px */
+    border: 4px solid black; /* Establece un borde sólido de 1px */
     padding: 8px; /* Añade relleno para mejorar la apariencia */
   }
   th{
-    border: 20px solid black;
+    border: 4px solid black;
   }
   
   .data-table th {
   
     padding: 10px;
     left: 10px;
-    border: 10px solid black;
+    border: 5px solid black;
     padding: 8px;
   }
   .editar{
