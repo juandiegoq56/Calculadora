@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "servidor.js",
-    "start": "node servidor.js"
+    "start": "node Api_Crud_Servidor.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,8 @@
     "cors": "^2.8.5",
     "cors-anywhere": "^0.4.4",
     "express": "^4.18.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   }
 }

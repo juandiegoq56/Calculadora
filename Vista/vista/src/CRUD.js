@@ -7,7 +7,7 @@ const Datos = () => {
   const [data, setData] = useState([]);//obtener datos de entrada
   const [editingId, setEditingId] = useState(null); // almacenar id a editar
   const [editedData, setEditedData] = useState({ operacion: '', resultado: '' });// almacena datos editados en la input habilitada para guardarlos despues.
-  
+
   useEffect(() => {   // se utiliza hook de react para actualizar los datos de los componentes.
     const fetchData = async () => {          //obtenemos los datos de manera asíncrona
       try {
