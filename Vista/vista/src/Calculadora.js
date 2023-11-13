@@ -4,6 +4,7 @@ import React, { useState } from 'react';// Importar React
 import { Button, Container, Row, Col, FormControl } from 'react-bootstrap'; // Importar Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';// Importa librerias de Bootstrap
 import { calculadora,borr,history1,obtenerFecha } from './Model/OperacionesMat'; // Llama las funciones del Model
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 function App1() {
     // inicio Controlador
     const [input, setInput] = useState('');
@@ -121,7 +122,9 @@ function App1() {
             
            
             <Button variant="primary" className="addMargin" onClick={() => addToInput('0')}>0</Button>
-            <Button variant="danger"  className="addMargin" onClick={borrar}>x</Button>
+            <Button variant="danger" className="addMargin" onClick={borrar}>
+            <AiOutlineCloseCircle style={{ fontSize: '12px' }} />
+            </Button>
             <Button variant="success" className="addMargin" onClick={calcular}>=</Button> {/*Boton para calcular las operacaiones */}
             <Button variant="warning" className="addMargin" onClick={() => addToInput('/')}>/</Button>
             
