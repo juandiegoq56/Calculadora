@@ -1,13 +1,13 @@
-// Como las operaciones con numeros y operador concatenado podemos hacer uso de la funcion eval para hacer los calculos.
+
 function calculadora(Operacion){  // Inicia la función calculadora
   let validation=validation1(Operacion); // Se asigna la función validacion a la variable.
   
   if(validation){                        // Se valida si cumple la condición.
     const Mjerarquia=['/','*'];          // Se asigna las mayores jerarquias.
-    const mjerarquia=['+','-'];          // Se adugna las menores jerarquias.
+    const mjerarquia=['+','-'];          // Se asigna las menores jerarquias.
     let operacion = Operacion.match(/\d+|[\+\-\*\/]/g); // Expresión regurar que busca concidencias de las operaciones matematicas.
     while(operacion.length>1){                          // Condición que asegura que solo quede una pocision en el string.
-      while(operacion.some(element => element === '/' || element === '*')){    // Condición que nos aegura si en el string hay elemento / o * . 
+      while(operacion.some(element => element === '/' || element === '*')){    // Condición que nos asegura si en el string hay elemento / o * . 
     operacion.forEach((element,index) => { // Se realiza el ciclo for para recorrer el string.
       //validar operadores consecutivos
       if(Mjerarquia.includes(element)){    // Se verifica si hay elementos de la mayor jerarquia.
